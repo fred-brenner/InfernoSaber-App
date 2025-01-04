@@ -1,0 +1,52 @@
+{
+  "run": [
+    {
+      "method": "shell.start",
+      "params": {
+        "path": "infernosaber"
+      }
+    },
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "{{os.platform() === 'win32' ? 'conda activate env' : 'source activate env'}}",
+        "on": [
+          {
+            "event": null,
+            "return": true
+          }
+        ]
+      }
+    },
+    {
+      "method": "shell.enter",
+      "params": {
+        "message": "python main_app.py",
+        "on": [
+          {
+            "event": "/(http://[0-9.:]+)/",
+            "return": "{{event.matches[0][1]}}"
+          }
+        ]
+      }
+    },
+    {
+      "method": "self.set",
+      "params": {
+        "session.json": {
+          "url": "{{input}}"
+        }
+      }
+    },
+    {
+      "method": "browser.open",
+      "params": {
+        "uri": "{{self.session.url}}",
+        "target": "_blank"
+      }
+    },
+    {
+      "method": "process.wait"
+    }
+  ]
+}

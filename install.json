@@ -61,10 +61,16 @@
       }
     },
     {
+      "method": "shell.run",
+      "params": {
+        "message": "echo. > install_successfull.txt"
+      }
+    },
+    {
       "method": "input",
       "params": {
         "title": "Install Success",
-        "description": "Go back to the dashboard and launch the app!"
+        "description": "Go back to the dashboard and launch the app"
       }
     },
     {

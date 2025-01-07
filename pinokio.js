@@ -9,7 +9,7 @@ module.exports = {
   description: "Flexible Automapper for Beatsaber made for any difficulty",
   icon: "icon.png",
   menu: async (kernel) => {
-    let installed = await exists(path.resolve(__dirname, "infernosaber"))
+    let installed = await exists(path.resolve(__dirname, "install_successfull.txt"))
     if (installed) {
       let session = (await kernel.loader.load(path.resolve(__dirname, "session.json"))).resolved
       return [{
@@ -30,6 +30,10 @@ module.exports = {
         when: "start.json",
         on: "<i class='fa-solid fa-desktop'></i> Server",
         href: "start.json?fullscreen=true"
+      }, {
+        html: '<i class="fa-solid fa-sync"></i> Update',
+        type: "link",
+        href: "update.json?run=true&fullscreen=true"
       }]
     } else {
       return [{

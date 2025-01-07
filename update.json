@@ -1,0 +1,35 @@
+{
+    "run": [
+      {
+        "method": "shell.start",
+        "params": {
+          "path": "infernosaber"
+        }
+      },
+      {
+        "method": "shell.enter",
+        "params": {
+          "message": "git fetch origin main_app && git reset --hard origin/main_app",
+          "on": [
+            {
+              "event": null,
+              "return": true
+            }
+          ]
+        }
+      },
+      {
+        "method": "input",
+        "params": {
+          "title": "Update Success",
+          "description": "The app has been updated successfully!"
+        }
+      },
+      {
+        "method": "browser.open",
+        "params": {
+          "uri": "/?selected=infernosaber"
+        }
+      }
+    ]
+  }

@@ -2,4 +2,4 @@
 
 Flexible Automapper for BeatSaber made for any difficulty
 
-[Implementing Repo](https://github.com/fred-brenner/InfernoSaber---BeatSaber-Automapper)
+[Based on Repo](https://github.com/fred-brenner/InfernoSaber---BeatSaber-Automapper)

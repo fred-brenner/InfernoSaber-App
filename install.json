@@ -39,7 +39,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "conda install -c conda-forge -y aubio pydub",
+        "message": "conda install -c conda-forge -y aubio pydub libvorbis",
         "on": [
           {
             "event": null,

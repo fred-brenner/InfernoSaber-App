@@ -15,7 +15,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "conda create -n env -y python=3.11",
+        "message": "conda create -n inferno_env -y python=3.11",
         "on": [
           {
             "event": null,
@@ -27,7 +27,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate env' : 'source activate env'}}",
+        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
         "on": [
           {
             "event": null,
@@ -39,7 +39,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "conda install -c conda-forge -y aubio pydub libvorbis",
+        "message": "conda install -c conda-forge -y ffmpeg aubio pydub libvorbis",
         "on": [
           {
             "event": null,

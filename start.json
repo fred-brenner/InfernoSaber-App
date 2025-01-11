@@ -9,7 +9,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate env' : 'source activate env'}}",
+        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
         "on": [
           {
             "event": null,

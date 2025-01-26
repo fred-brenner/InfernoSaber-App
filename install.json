@@ -51,7 +51,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "pip install -r requirements.txt",
+        "message": "pip install --isolated -r requirements.txt",
         "on": [
           {
             "event": null,

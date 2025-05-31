@@ -15,7 +15,7 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "conda create -n inferno_env -y python=3.9",
+        "message": "conda create -n inferno_env -y python=3.10",
         "on": [
           {
             "event": null,

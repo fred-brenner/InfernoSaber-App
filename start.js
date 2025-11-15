@@ -25,14 +25,14 @@ module.exports = {
       }
     },
     {
-      when: "{{input.event && input.event[1]}}",
+      when: "{{!!(input.event && input.event[1])}}",
       method: "local.set",
       params: {
-        url: "{{input.event[1]}}"
+        url: "{{(() => { let url = input.event[1].trim(); if (url.startsWith('http://0.0.0.0')) { url = url.replace('http://0.0.0.0', 'http://127.0.0.1'); } return url; })()}}"
       }
     },
     {
-      when: "{{local.url}}",
+      when: "{{!!local.url}}",
       method: "self.set",
       params: {
         "session.json": {
@@ -41,7 +41,7 @@ module.exports = {
       }
     },
     {
-      when: "{{local.url}}",
+      when: "{{!!local.url}}",
       method: "browser.open",
       params: {
         uri: "{{local.url}}",

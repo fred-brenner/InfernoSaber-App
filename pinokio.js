@@ -9,28 +9,30 @@ module.exports = {
   description: "Flexible Automapper for Beatsaber made for any difficulty",
   icon: "icon.png",
   daemon: true,
-  menu: async (kernel) => {
+  menu: async (kernel, info) => {
     let installed = await exists(path.resolve(__dirname, "install_successfull.txt"))
     if (installed) {
       let session = (await kernel.loader.load(path.resolve(__dirname, "session.json"))).resolved
+      let local = info && info.local ? info.local("start.js") : null
+      let url = (local && local.url) || (session && session.url) || null
       return [{
-        when: "start.json",
+        when: "start.js",
         on: "<i class='fa-solid fa-spin fa-circle-notch'></i> Running",
         type: "label",
-        href: "start.json"
+        href: "start.js"
       }, {
-        when: "start.json",
+        when: "start.js",
         off: "<i class='fa-solid fa-power-off'></i> Launch",
-        href: "start.json?fullscreen=true&run=true",
+        href: "start.js?fullscreen=true&run=true",
       }, {
-        when: "start.json",
-        on: (session && session.url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
-        href: (session && session.url ? session.url : null),
+        when: "start.js",
+        on: (url ? "<i class='fa-solid fa-rocket'></i> Open Web UI" : null),
+        href: url,
         target: "_blank"
       }, {
-        when: "start.json",
+        when: "start.js",
         on: "<i class='fa-solid fa-desktop'></i> Server",
-        href: "start.json?fullscreen=true"
+        href: "start.js?fullscreen=true"
       }, {
         html: '<i class="fa-solid fa-sync"></i> Update',
         type: "link",

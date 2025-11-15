@@ -1,47 +1,46 @@
 {
   "run": [
     {
-      "method": "shell.start",
+      "method": "shell.run",
       "params": {
-        "path": "infernosaber"
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
+        "path": "infernosaber",
+        "message": [
+          "{{os.platform() === 'win32' ? 'conda activate inferno_env && python main_app.py' : 'source activate inferno_env && python main_app.py'}}"
+        ],
         "on": [
           {
-            "event": null,
-            "return": true
+            "event": "/(http:\\/\\/[a-zA-Z0-9.]+:[0-9]+)/i",
+            "done": true
+          },
+          {
+            "event": "/errno/i",
+            "break": false
+          },
+          {
+            "event": "/error:/i",
+            "break": false
           }
         ]
       }
     },
     {
-      "method": "shell.enter",
+      "method": "local.set",
       "params": {
-        "message": "python main_app.py",
-        "on": [
-          {
-            "event": "/(http://[0-9.:]+)/",
-            "return": "{{event.matches[0][1]}}"
-          }
-        ]
+        "url": "{{input.event[1]}}"
       }
     },
     {
       "method": "self.set",
       "params": {
         "session.json": {
-          "url": "{{input}}"
+          "url": "{{local.url}}"
         }
       }
     },
     {
       "method": "browser.open",
       "params": {
-        "uri": "{{self.session.url}}",
+        "uri": "{{local.url}}",
         "target": "_blank"
       }
     },

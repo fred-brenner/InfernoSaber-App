@@ -8,6 +8,7 @@ module.exports = {
   title: "InfernoSaber Automapper",
   description: "Flexible Automapper for Beatsaber made for any difficulty",
   icon: "icon.png",
+  daemon: true,
   menu: async (kernel) => {
     let installed = await exists(path.resolve(__dirname, "install_successfull.txt"))
     if (installed) {

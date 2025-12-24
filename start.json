@@ -7,21 +7,9 @@
       }
     },
     {
-      "method": "shell.enter",
+      "method": "shell.run",
       "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "python main_app.py",
+        "message": "conda run -n inferno_env python main_app.py",
         "on": [
           {
             "event": "/(http://[0-9.:]+)/",

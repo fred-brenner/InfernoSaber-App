@@ -9,22 +9,10 @@
     {
       "method": "shell.enter",
       "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
+        "message": "conda run -n inferno_env python main_app.py",
         "on": [
           {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "python main_app.py",
-        "on": [
-          {
-            "event": "/(http://[0-9.:]+)/",
+            "event": "/(http:\\/\\/[0-9.:]+)/",
             "return": "{{event.matches[0][1]}}"
           }
         ]

@@ -1,35 +1,31 @@
 {
-    "run": [
-      {
-        "method": "shell.start",
-        "params": {
-          "path": "infernosaber"
-        }
-      },
-      {
-        "method": "shell.enter",
-        "params": {
-          "message": "git fetch origin main_app && git reset --hard origin/main_app",
-          "on": [
-            {
-              "event": null,
-              "return": true
-            }
-          ]
-        }
-      },
-      {
-        "method": "input",
-        "params": {
-          "title": "Update Success",
-          "description": "The app has been updated successfully!"
-        }
-      },
-      {
-        "method": "browser.open",
-        "params": {
-          "uri": "/?selected=infernosaber"
-        }
+  "run": [
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "git fetch origin main_app && git reset --hard origin/main_app",
+        "path": "infernosaber"
       }
-    ]
-  }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "conda run -n inferno_env python -m pip install --isolated -r requirements.txt",
+        "path": "infernosaber"
+      }
+    },
+    {
+      "method": "input",
+      "params": {
+        "title": "Update Success",
+        "description": "The app has been updated successfully!"
+      }
+    },
+    {
+      "method": "browser.open",
+      "params": {
+        "uri": "/?selected=infernosaber"
+      }
+    }
+  ]
+}

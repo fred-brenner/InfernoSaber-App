@@ -7,63 +7,29 @@
       }
     },
     {
-      "method": "shell.start",
+      "method": "shell.run",
       "params": {
-        "path": "infernosaber"
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "conda create -n inferno_env -y python=3.10",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "conda install -c conda-forge -y ffmpeg=4.3.1 aubio pydub",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "pip install --isolated -r requirements.txt",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
+        "message": "conda create -y -n inferno_env python=3.10 || conda install -y -n inferno_env python=3.10"
       }
     },
     {
       "method": "shell.run",
       "params": {
-        "message": "echo. > install_successfull.txt"
+        "message": "conda install -y -n inferno_env -c conda-forge ffmpeg=4.3.1 aubio pydub"
+      }
+    },
+    {
+      "method": "shell.run",
+      "params": {
+        "message": "conda run -n inferno_env python -m pip install --isolated -r requirements.txt",
+        "path": "infernosaber"
+      }
+    },
+    {
+      "method": "fs.write",
+      "params": {
+        "path": "install_successfull.txt",
+        "text": ""
       }
     },
     {

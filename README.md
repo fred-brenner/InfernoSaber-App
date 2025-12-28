@@ -1,5 +1,4 @@
-# Inferno Saber APP
+# InfernoSaber---App
 
-Flexible Automapper for BeatSaber made for any difficulty
+A pinokio script for https://github.com/fred-brenner/InfernoSaber---BeatSaber-Automapper
 
-[Based on Repo](https://github.com/fred-brenner/InfernoSaber---BeatSaber-Automapper)

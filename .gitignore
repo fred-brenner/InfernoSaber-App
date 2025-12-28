@@ -1,4 +1,2 @@
-/ENVIRONMENT
-/infernosaber
-/.idea
-install_successfull.txt
+node_modules
+.DS_Store

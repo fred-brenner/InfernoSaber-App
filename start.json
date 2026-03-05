@@ -1,52 +1,25 @@
 {
+  "daemon": true,
   "run": [
     {
-      "method": "shell.start",
+      "method": "shell.run",
       "params": {
-        "path": "infernosaber"
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
-        "message": "{{os.platform() === 'win32' ? 'conda activate inferno_env' : 'source activate inferno_env'}}",
-        "on": [
-          {
-            "event": null,
-            "return": true
-          }
-        ]
-      }
-    },
-    {
-      "method": "shell.enter",
-      "params": {
+        "path": "infernosaber",
+        "conda": "conda_env",
         "message": "python main_app.py",
         "on": [
           {
-            "event": "/(http://[0-9.:]+)/",
-            "return": "{{event.matches[0][1]}}"
+            "event": "/(http:\\/\\/[0-9.:]+)/",
+            "done": true
           }
         ]
       }
     },
     {
-      "method": "self.set",
+      "method": "local.set",
       "params": {
-        "session.json": {
-          "url": "{{input}}"
-        }
+        "url": "{{input.event[1]}}"
       }
-    },
-    {
-      "method": "browser.open",
-      "params": {
-        "uri": "{{self.session.url}}",
-        "target": "_blank"
-      }
-    },
-    {
-      "method": "process.wait"
     }
   ]
 }

@@ -8,7 +8,7 @@
         "message": [
           "git fetch origin main_app",
           "git pull --ff-only origin main_app",
-          "conda install -y conda-forge::ffmpeg=*=*gpl*"
+          "conda install -c conda-forge -y ffmpeg"
         ]
       }
     },

@@ -16,7 +16,8 @@
           "python": "python=3.10"
         },
         "message": [
-          "conda install -c conda-forge -y ffmpeg=4.3.1 aubio pydub",
+          "conda install -c conda-forge -y aubio pydub",
+          "conda install -c conda-forge -y ffmpeg",
           "uv pip install --isolated -r requirements.txt"
         ]
       }

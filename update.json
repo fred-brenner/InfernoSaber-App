@@ -4,9 +4,11 @@
       "method": "shell.run",
       "params": {
         "path": "infernosaber",
+        "conda": "conda_env",
         "message": [
           "git fetch origin main_app",
-          "git pull --ff-only origin main_app"
+          "git pull --ff-only origin main_app",
+          "conda install -c conda-forge -y ffmpeg"
         ]
       }
     },

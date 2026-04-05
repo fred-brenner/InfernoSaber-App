@@ -16,16 +16,10 @@
           "python": "python=3.10"
         },
         "message": [
-          "conda install -c conda-forge -y aubio pydub",
           "conda install -c conda-forge -y ffmpeg",
-          "uv pip install --isolated -r requirements.txt"
+          "{{platform === 'darwin' ? 'uv pip install --python \"$(which python)\" aubio pydub' : 'conda install -c conda-forge -y aubio pydub'}}",
+          "uv pip install --python \"$(which python)\" --isolated -r requirements.txt"
         ]
-      }
-    },
-    {
-      "method": "shell.run",
-      "params": {
-        "message": "{{platform === 'win32' ? 'type nul > install_successfull.txt' : 'touch install_successfull.txt'}}"
       }
     },
     {

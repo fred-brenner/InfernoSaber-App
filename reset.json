@@ -1,0 +1,24 @@
+{
+  "run": [
+    {
+      "when": "{{exists('infernosaber')}}",
+      "method": "shell.run",
+      "params": {
+        "message": "{{platform === 'win32' ? 'rmdir /s /q infernosaber' : 'rm -rf infernosaber'}}"
+      }
+    },
+    {
+      "method": "input",
+      "params": {
+        "title": "Reset Success",
+        "description": "The app has been reset to the pre-install state."
+      }
+    },
+    {
+      "method": "web.open",
+      "params": {
+        "uri": "/?selected=infernosaber"
+      }
+    }
+  ]
+}

@@ -17,7 +17,7 @@
         },
         "message": [
           "conda install -c conda-forge -y aubio pydub",
-          "conda install -c conda-forge -y ffmpeg",
+          "conda install -y conda-forge::ffmpeg=*=*gpl*",
           "uv pip install --isolated -r requirements.txt"
         ]
       }

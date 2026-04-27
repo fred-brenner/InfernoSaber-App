@@ -16,7 +16,7 @@
           "python": "python=3.10"
         },
         "message": [
-          "conda install -c conda-forge -y aubio pydub",
+          "{{platform === 'darwin' ? 'uv pip install aubio pydub' : 'conda install -c conda-forge -y aubio pydub'}}",
           "conda install -y conda-forge::ffmpeg=*=*gpl*",
           "uv pip install --isolated -r requirements.txt"
         ]

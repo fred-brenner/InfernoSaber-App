@@ -31,6 +31,22 @@
       }
     },
     {
+      "method": "hf.download",
+      "params": {
+        "_": ["BierHerr/InfernoSaber"],
+        "revision": "v2_expert",
+        "local-dir": "Data/model/v2_expert"
+      }
+    },
+    {
+      "method": "hf.download",
+      "params": {
+        "_": ["BierHerr/InfernoSaber"],
+        "revision": "v2_expert_noterepair-c50",
+        "local-dir": "Data/model/v2_expert_noterepair-c50"
+      }
+    },
+    {
       "method": "shell.run",
       "params": {
         "message": "{{platform === 'win32' ? 'type nul > install_successfull.txt' : 'touch install_successfull.txt'}}"

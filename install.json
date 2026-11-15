@@ -25,7 +25,8 @@
           "{{platform === 'darwin' ? 'uv pip install numpy==1.26.4 setuptools wheel && uv pip install --no-build-isolation aubio==0.4.9 pydub' : 'conda install -c conda-forge -y aubio pydub'}}",
           "conda install -y conda-forge::ffmpeg=*=*gpl*",
           "uv pip install --isolated -r requirements.txt",
-          "python -c \"import aubio, pydub, tensorflow, gradio; from tkinter import Tk; print('Dependencies verified')\"",
+          "uv pip install --isolated onnxruntime==1.20.1 tf2onnx==1.16.1 onnx==1.17.0",
+          "python -c \"import aubio, pydub, tensorflow, gradio, onnxruntime, tf2onnx; from tkinter import Tk; print('Dependencies verified')\"",
           "ffmpeg -version"
         ]
       }

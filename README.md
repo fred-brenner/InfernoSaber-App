@@ -13,7 +13,7 @@ Flexible Automapper for BeatSaber made for any difficulty
 
 **Update** refreshes the app code, re-checks the model bundles, and syncs Python requirements. Use **Install** again if the Conda environment itself needs to be rebuilt. Pinokio's Stop control stops the running app.
 
-The app and its isolated Python 3.10 Conda environment live in `infernosaber/`. On macOS, the installer builds Aubio 0.4.9 against NumPy 1.26.4 with build isolation disabled and a Clang compatibility flag for its legacy callback signatures. Windows and Linux use the Conda audio packages. Installation verifies Aubio, TensorFlow, Gradio, Tkinter, and FFmpeg before writing the installation marker.
+The app and its isolated Python 3.10 Conda environment live in `infernosaber/`. On macOS, the installer builds Aubio 0.4.9 against NumPy 1.26.4 with build isolation disabled and a Clang compatibility flag for its legacy callback signatures. Windows and Linux use the Conda audio packages. Installation verifies Aubio, TensorFlow, Gradio, ONNX Runtime, tf2onnx, Tkinter, and FFmpeg before writing the installation marker.
 
 If installation fails, inspect `logs/api/install.json/latest`; previous steps are saved in timestamped files in the same folder.
 
